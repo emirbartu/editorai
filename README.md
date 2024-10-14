@@ -15,9 +15,12 @@
 
 
 ## Yeni Arayüz (Gradio)
+<div style="display: flex; justify-content: space-between; align-items: center;">
+
 ![](images/arayuz1.png)
 
 ![](images/arayuz2.png)
+</div>
 
 ## Eski Arayüz (PyQt5)
 ![](images/eskiarayuz.png)
