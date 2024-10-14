@@ -11,7 +11,7 @@
 5. Atasözü Öneri : Metnin tamamını inceler ve hazırladığımız 2500'e yakın atasözü içeren ver setimizi kullanark metinle alakalı atasözlerini bulur.
 ## Eklenenler
 7. Fotoğraf ve Resimdeki Eklentisi: Tesseract kullanarak yüklenen fotoğraf ve resimdeki metinleri tanır ve Velhasıl ile bunları işler. 
-8. Gelişmiş ve Modern Arayüz: PyQt ile masaüstü geliştirme uygulamayı yavaşlatmaktadır ve bazı bugları vardır, bu yüzden daha modern bir teknik olan Gradio web arayüzü ile Velhasıla yeni bir arayüz geliştirdik. (Eski "old-notepad.py" dosyası ile hala erişim mevcuttur.)
+8. Gelişmiş ve Modern Arayüz: PyQt ile masaüstü geliştirme uygulamayı yavaşlatmaktadır ve bazı bugları vardır, bu yüzden daha modern bir teknik olan Gradio web arayüzü ile Velhasıla yeni bir arayüz geliştirdik. (Eski arayüz "old-notepad.py" dosyası ile hala erişime açıktır.)
 
 
 ## Yeni Arayüz (Gradio)
