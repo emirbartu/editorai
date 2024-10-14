@@ -1,5 +1,5 @@
-# Velhasıl
-## Velhası Projemizin Amacı
+# EditorAI
+## Velhasıl Tabanlı Metin Düzenleme Uygulaması
 
 ## Projemizin Özellikleri
 
@@ -9,15 +9,47 @@
 3. Cümle Analizi : Metnin okunabilirliğinin ve akıcılığının artırılmasını sağlamak amacıyla metin içindeki cümleleri analiz eder ve uzun yazılmış birleşik cümlelerin bölünebilmesini önerir.
 4. Metin İstatistikleri : Metnin kelime sayısı, cümle sayısı, karakter sayısı gibi istatistiklerini bulur.
 5. Atasözü Öneri : Metnin tamamını inceler ve hazırladığımız 2500'e yakın atasözü içeren ver setimizi kullanark metinle alakalı atasözlerini bulur.
+## Eklenenler
+7. Fotoğraf ve Resimdeki Eklentisi: Tesseract kullanarak yüklenen fotoğraf ve resimdeki metinleri tanır ve Velhasıl ile bunları işler. 
+8. Gelişmiş ve Modern Arayüz: PyQt ile masaüstü geliştirme uygulamayı yavaşlatmaktadır ve bazı bugları vardır, bu yüzden daha modern bir teknik olan Gradio web arayüzü ile Velhasıla yeni bir arayüz geliştirdik. (Eski "old-notepad.py" dosyası ile hala erişim mevcuttur.)
 
-![](velhasilEkran.png)
 
-## Yükleme
-> git clone https://github.com/MiniVelhasil/velhasil.git
+## Yeni Arayüz (Gradio)
+<div style="display: flex; justify-content: space-between; align-items: center;">
 
-> pip3 install -r requirements.txt
+![](images\arayuz1.png)
 
-## Kullanım Örnekleri
+![](images\arayuz2.png)
+</div>
+
+## Eski Arayüz (PyQt5)
+![](images\eskiarayuz.png)
+
+### Lorem
+ ![](images\lorem.png)
+
+# Yükleme
+> git clone https://github.com/emirbartu/editorai
+
+>>> VSCode gibi bir text editorde çalışıyorsanız venv kurulumu [bkz.](https://freecodecamp.org/news/how-to-setup-virtual-environments-in-python/) 
+
+> pip install -r requirements.txt
+
+## ÖNEMLİ --- Windows Bilgisayarlar İçin UTF-8 Ayarlama  
+requirements.txt dosyasındaki kütüphaneleri kurduktan sonra **.venv\Lib\site-packages\Util\FileUtils.py** konumundan dosyayı açtıktan sonra "utf-8" ile kodlanması sağlanmalıdır, aksi takdirde Windows bilgisayarlarda proje çalışmaz.
+![](images\utfkodlama.png)
+
+
+# Tesseract Kurulumu
+> https://github.com/UB-Mannheim/tesseract/wiki
+![](images\tesseractsetup.png)
+
+> Setup dosyasını indirdikten sonra Tesseract'ı kurun ve Tesseract'ı kurduğunuz yerin yolunu Ortam Değişkenlerinden belirtin. 
+
+> [Videolu Anlatım](https://www.youtube.com/watch?v=KKGLS_j7iJM) (Yalnızca tesseract kurulumudur repository ile ilgisi yoktur)
+
+
+## Arayüz Harici Kullanım Örnekleri
 
 ### İstatistik Çıkarma
 
@@ -68,12 +100,17 @@
     oneriler.sort(reverse=True)
 ```
 
+# Arayüz Kullanılmarı
 ## Masaüstü Arayüzü
-
-Velhasıl metin analizi sınıfımızı test etmek için PyQt ile bir arayüz hazırladık. Bu masaüstü arayüzü kullanarak metin analizi, yazım denetimi gibi projemizin tüm özelliklerini kullanabilirsiniz. Çalıştırmak için alttaki komutu çalıştırın.
-
+**Gradio** ile hazırlanmış arayüzü çalıştırma 
 ```sh
 python notepad.py
+```
+
+
+**PyQt5** ile hazırlanmış arayüzü çalıştırma 
+```sh
+python old-notepad.py
 ```
 
 
@@ -81,8 +118,16 @@ python notepad.py
 
 ```sh
 NlpToolkit-MorphologicalAnalysis==1.0.21
-NlpToolkit-NGram=1.0.10
-PyQt5-stubs==5.14.2.2
+NlpToolkit-NGram==1.0.10
+setuptools==75.1.0
+NlpToolkit-Corpus
+pytesseract
+pillow
+gradio
+
+PyQt5
+PyQt5-stubs==5.14.2.2 (Yeni arayüzü kullanacaksanız requirements.txt dosyasından silebilirsiniz)
+
 ```
 
 ## Kullanılan Ek Kaynaklar
@@ -91,7 +136,6 @@ Atasözleri https://www.atasozlerianlamlari.com
 
 Yazım Denetimi için https://github.com/StarlangSoftware/TurkishSpellChecker-Py 
 
-Not Defteri Örneği : https://www.learnpyqt.com/examples/no2pads-simple-notepad-clone/
+PyQt Not Defteri Örneği : https://www.learnpyqt.com/examples/no2pads-simple-notepad-clone/
 
-Masaüstü Uygulama ikonları https://icons8.com sitesinden alındı
-
+PyQt Uygulama ikonları https://icons8.com sitesinden alındı

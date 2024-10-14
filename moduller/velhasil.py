@@ -5,14 +5,14 @@ Created on Thu Jul  9 14:30:58 2020
 @author: halil
 """
 import re
-import listeler
-import Utils
-from SpellChecker.SimpleSpellChecker import SimpleSpellChecker
+import moduller.listeler as listeler
+import moduller.Utils as Utils
+from moduller.SpellChecker.SimpleSpellChecker import SimpleSpellChecker
 from Corpus.Sentence import Sentence
 from Dictionary.Word import Word
 from MorphologicalAnalysis.FsmMorphologicalAnalyzer import FsmMorphologicalAnalyzer
 from NGram.NGram import NGram
-from SpellChecker.NGramSpellChecker import NGramSpellChecker
+from moduller.SpellChecker.NGramSpellChecker import NGramSpellChecker
 from NGram.NoSmoothing import NoSmoothing
 
 

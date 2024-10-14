@@ -1,4 +1,4 @@
-from velhasil import Velhasil
+from moduller.velhasil import Velhasil
 
 def test_velhasil():
     test_text = "Bu bir test cümlesidir. Velhasil projesini test ediyoruz."

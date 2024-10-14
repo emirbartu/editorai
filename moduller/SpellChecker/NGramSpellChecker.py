@@ -3,7 +3,7 @@ from Dictionary.Word import Word
 from MorphologicalAnalysis.FsmMorphologicalAnalyzer import FsmMorphologicalAnalyzer
 from NGram.NGram import NGram
 
-from SpellChecker.SimpleSpellChecker import SimpleSpellChecker
+from moduller.SpellChecker.SimpleSpellChecker import SimpleSpellChecker
 
 
 class NGramSpellChecker(SimpleSpellChecker):

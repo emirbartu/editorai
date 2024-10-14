@@ -1,5 +1,5 @@
-import velhasil
-from atasozlerOneri import AtasozleriOneri
+import moduller.velhasil as velhasil
+from moduller.atasozlerOneri import AtasozleriOneri
 
 def test_velhasil():
     print("Testing Velhasil class...")

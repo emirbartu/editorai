@@ -4,8 +4,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtPrintSupport import *
-import atasozlerOneri
-import velhasil
+import moduller.atasozlerOneri as atasozlerOneri
+import moduller.velhasil as velhasil
 import os
 import sys
 

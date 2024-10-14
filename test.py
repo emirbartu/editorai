@@ -1,5 +1,5 @@
-import velhasil
-import atasozlerOneri
+import moduller.velhasil as velhasil
+import moduller.atasozlerOneri as atasozlerOneri
 
 with open ('data/haber.txt', 'r', encoding="utf-8") as myfile:
     text = myfile.read ()

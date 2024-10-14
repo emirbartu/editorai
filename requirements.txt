@@ -1,9 +1,10 @@
 NlpToolkit-MorphologicalAnalysis==1.0.21
 NlpToolkit-NGram==1.0.10
-PyQt5
-PyQt5-stubs==5.14.2.2
 setuptools==75.1.0
 NlpToolkit-Corpus
 pytesseract
 pillow
 gradio
+
+PyQt5
+PyQt5-stubs==5.14.2.2

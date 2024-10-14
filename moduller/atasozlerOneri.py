@@ -1,6 +1,6 @@
     #ATASÖZÜ ÖNERİ SİSTEMİ
 
-import Utils
+import moduller.Utils as Utils
 
 
 class AtasozleriOneri():

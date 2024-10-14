@@ -5,7 +5,7 @@ from Dictionary.Word import Word
 from Language.TurkishLanguage import TurkishLanguage
 from MorphologicalAnalysis.FsmMorphologicalAnalyzer import FsmMorphologicalAnalyzer
 
-from SpellChecker.SpellChecker import SpellChecker
+from moduller.SpellChecker.SpellChecker import SpellChecker
 
 
 class SimpleSpellChecker(SpellChecker):
