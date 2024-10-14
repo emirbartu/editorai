@@ -15,15 +15,15 @@
 
 
 ## Yeni Arayüz (Gradio)
-![](images\arayuz1.png)
+![](images/arayuz1.png)
 
-![](images\arayuz2.png)
+![](images/arayuz2.png)
 
 ## Eski Arayüz (PyQt5)
-![](images\eskiarayuz.png)
+![](images/eskiarayuz.png)
 
 ### Lorem
- ![](images\lorem.png)
+![](images/lorem.png)
 
 # Yükleme
 > git clone https://github.com/emirbartu/editorai
