@@ -100,8 +100,8 @@ class VelhasilApp:
             return f"OCR işlemi sırasında hata oluştu: {str(e)}"
 
     def run_app(self):
-        with gr.Blocks() as demo:
-            gr.Markdown("## Velhasıl Metin İşleme Aracı")
+        with gr.Blocks(title="EditorAI - Metin İşleme Aracı") as demo:
+            gr.Markdown("EditorAI Metin İşleme Aracı")
 
             with gr.Row():
                 text_box = gr.Textbox(placeholder="Metninizi buraya yazın...", lines=10, label="Metin")
