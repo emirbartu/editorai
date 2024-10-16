@@ -24,8 +24,8 @@ class VelhasilApp:
 
     def yazimDenetimi(self, text):
         # Denetim sonuçları: kelimeler ve karşılık gelen hata kodları
-        kelimeler = text.split()  # Metni kelimelere ayırıyoruz
-        denetim_kodlari = self.velhasil_.yazimDenetimi(text.rstrip())  # Hata kodları listesi
+        kelimeler = text.split()
+        denetim_kodlari = self.velhasil_.yazimDenetimi(text.rstrip())
 
         # Hata kodlarına ait açıklamalar
         error_codes = {
@@ -49,7 +49,6 @@ class VelhasilApp:
             6: "cyan"
         }
 
-        # Kelimeler ve hata kodlarını eşleştirip her kelimenin karşısına açıklama ekliyoruz
         formatted_output = [
             (kelime, color_map.get(kod, None)) for kelime, kod in zip(kelimeler, denetim_kodlari)
         ]
@@ -76,12 +75,11 @@ class VelhasilApp:
 
         for cumle in velhasil__.cumleler:
             cumle_bolme_sonucu = velhasil__.cumleBolucu(cumle)
-            if cumle_bolme_sonucu != 0:  # 0 olmayan sonuçları vurguluyoruz
-                highlighted_sentences.append((cumle, "highlight"))  # highlight olan cümleler
+            if cumle_bolme_sonucu != 0:
+                highlighted_sentences.append((cumle, "highlight"))
                 bolunebilen_cumle_sayisi += 1
             else:
-                highlighted_sentences.append((cumle, None))  # vurgulanmayan cümleler
-
+                highlighted_sentences.append((cumle, None))
         analysis = [
             f"Metnin içinde {velhasil__.cumleSayisi} cümle bulundu.",
             f"Metnin içinde {bolunebilen_cumle_sayisi} bölünmeye müsait cümle bulundu.",
@@ -89,7 +87,6 @@ class VelhasilApp:
             f"Metin {velhasil__.paragrafSayisi} paragraftan oluşuyor."
         ]
         return highlighted_sentences, "\n".join(analysis)
-
 
     def process_captured_image(self, image):
         pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
@@ -99,13 +96,35 @@ class VelhasilApp:
         except Exception as e:
             return f"OCR işlemi sırasında hata oluştu: {str(e)}"
 
+    def tumCumleyiKontrolEtVeDuzelt(self, metin):
+        kelimeler = metin.split()
+        noktalama_isaretleri = [".", ",", "?", "!", "...", ":", "(", ")"]
+        
+        duzeltilmis_metin = []
+
+        for kelime in kelimeler:
+            if kelime not in noktalama_isaretleri:
+                if not self.velhasil_.isCorrect(kelime):
+                    oneriler = self.velhasil_.kelimeOneri(kelime)
+                    if oneriler:
+                        kelime = list(oneriler)[0]
+                elif len(self.velhasil_.turkcesiniOner(kelime)) > 0:
+                    kelime = self.velhasil_.turkcesiniOner(kelime)[0]
+
+            duzeltilmis_metin.append(kelime)
+        
+        yeni_metin = " ".join(duzeltilmis_metin)
+        
+        return yeni_metin
+
+
     def run_app(self):
         with gr.Blocks(title="EditorAI - Metin İşleme Aracı") as demo:
             gr.Markdown("EditorAI Metin İşleme Aracı")
 
             with gr.Row():
                 text_box = gr.Textbox(placeholder="Metninizi buraya yazın...", lines=10, label="Metin")
-
+                
             with gr.Row():
                 open_button = gr.File(label="Dosya Aç", scale=1)
             with gr.Row():
@@ -117,7 +136,8 @@ class VelhasilApp:
                 with gr.Row():
                     istatistik_button = gr.Button("Metin İstatistikleri")
                     cumleanalizi_button = gr.Button("Cümle Analizi")
-
+                with gr.Row():
+                    duzelt_button = gr.Button("Metin Duzelt")
                 highlighted_output = gr.HighlightedText(
                     label="Yazım Denetimi Sonuçları", 
                     combine_adjacent=True, 
@@ -130,6 +150,7 @@ class VelhasilApp:
             atasozu_button.click(self.atasozuOneri, inputs=[text_box], outputs=[output_text])
             yazimdenetim_button.click(self.yazimDenetimi, inputs=[text_box], outputs=[highlighted_output])
             istatistik_button.click(self.istatistikGoster, inputs=[text_box], outputs=[output_text])
+            duzelt_button.click(self.tumCumleyiKontrolEtVeDuzelt, inputs=[text_box], outputs=[output_text])
             cumleanalizi_button.click(self.cumleAnalizi, inputs=[text_box], outputs=[highlighted_output, output_text])
             image_input.upload(self.process_captured_image, inputs=[image_input], outputs=[text_box])
 
