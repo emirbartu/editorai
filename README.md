@@ -131,6 +131,7 @@ PyQt5-stubs==5.14.2.2 (Yeni arayüzü kullanacaksanız requirements.txt dosyası
 ```
 
 ## Kullanılan Ek Kaynaklar
+[Velhasıl] (https://github.com/MiniVelhasil/velhasil)
 
 Atasözleri https://www.atasozlerianlamlari.com
 
