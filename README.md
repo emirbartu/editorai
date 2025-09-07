@@ -1,5 +1,6 @@
 # EditorAI
-## Velhasıl Tabanlı Metin Düzenleme Uygulaması
+> Bu proje MEB Robot Yarışması için yapılmıştır 🏆
+## [Velhasıl](https://github.com/MiniVelhasil/velhasil) Tabanlı Metin Düzenleme Uygulaması
 
 ## Projemizin Özellikleri
 
